@@ -21,7 +21,7 @@ for (let num = 30; num >= 0; num--) {
 export default function Home() {
   return (
     <ResponsiveContainer width="100%" height={400}>
-      <CardanoStakingGraph/>
+      <CardanoStakingGraph />
       <AreaChart data={data}>
         <defs>
           <linearGradient id="color" x1="0" y1="0" x2="0" y2="1">
