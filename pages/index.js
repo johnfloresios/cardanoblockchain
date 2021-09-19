@@ -14,7 +14,7 @@ const data = [];
 for (let num = 30; num >= 0; num--) {
   data.push({
     epoch: 12695385 + num,
-    amount: 1 + Math.random(),
+    value: 1 + Math.random(),
   });
 }
 
@@ -31,7 +31,7 @@ export default function Home() {
           </linearGradient>
         </defs>
 
-        <Area dataKey="amount" stroke="#2451B7" fill="url(#color)" />
+        <Area dataKey="value" stroke="#2451B7" fill="url(#color)" />
 
         <XAxis
           dataKey="epoch"
@@ -43,7 +43,7 @@ export default function Home() {
         />
 
         <YAxis
-          datakey="amount"
+          datakey="value"
           axisLine={false}
           tickLine={false}
           tickCount={8}
@@ -63,8 +63,8 @@ function CustomTooltip({ active, payload, label }) {
   if (active) {
     return (
       <div className="tooltip">
-        <h4>{label}</h4>
-        <p>${payload[0].amount.toFixed(2)} ADA</p>
+        <h4>Epoch: </h4>
+        <p>{payload[0].value} ADA</p>
       </div>
     );
   }
