@@ -13,7 +13,7 @@ import { CardanoStakingGraph } from "./api/CardanoStakingGraph";
 
 const data = [];
 const min = 1;
-const min = 20;
+const max = 20;
 for (let num = 0; num <= 30; num++) {
   data.push({
     epoch: 200 + num,
