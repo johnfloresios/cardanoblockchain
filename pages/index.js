@@ -13,8 +13,8 @@ import { CardanoStakingGraph } from "./api/CardanoStakingGraph";
 const data = [];
 for (let num = 30; num >= 0; num--) {
   data.push({
-    date: subDays(new Date(), num).toISOString().substr(0, 10),
-    value: 1 + Math.random(),
+    epoch: 12695385 + num;
+    amount: 1 + Math.random(),
   });
 }
 
@@ -31,23 +31,19 @@ export default function Home() {
           </linearGradient>
         </defs>
 
-        <Area dataKey="value" stroke="#2451B7" fill="url(#color)" />
+        <Area dataKey="amount" stroke="#2451B7" fill="url(#color)" />
 
         <XAxis
-          dataKey="date"
+          dataKey="epoch"
           axisLine={false}
           tickLine={false}
           tickFormatter={(str) => {
-            const date = parseISO(str);
-            if (date.getDate() % 7 === 0) {
-              return format(date, "MMM, d");
-            }
-            return "";
+            return epoch;
           }}
         />
 
         <YAxis
-          datakey="value"
+          datakey="amount"
           axisLine={false}
           tickLine={false}
           tickCount={8}
@@ -67,8 +63,8 @@ function CustomTooltip({ active, payload, label }) {
   if (active) {
     return (
       <div className="tooltip">
-        <h4>{format(parseISO(label), "eeee, d MMM, yyyy")}</h4>
-        <p>${payload[0].value.toFixed(2)} CAD</p>
+        <h4>{label}</h4>
+        <p>${payload[0].amount.toFixed(2)} ADA</p>
       </div>
     );
   }

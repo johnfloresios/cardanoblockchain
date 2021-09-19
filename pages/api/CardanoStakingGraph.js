@@ -5,7 +5,7 @@ export class CardanoStakingGraph extends Component {
 	  render() {
 		      return(
 			      <div>
-			            <p>Click on an emoji to view the emoji short name.</p>
+			            <H1>Staking Reward History</H1>
 			      </div>
 			          )
 		    }
