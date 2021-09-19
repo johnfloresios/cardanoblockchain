@@ -13,7 +13,7 @@ import { CardanoStakingGraph } from "./api/CardanoStakingGraph";
 const data = [];
 for (let num = 30; num >= 0; num--) {
   data.push({
-    epoch: 12695385 + num;
+    epoch: 12695385 + num,
     amount: 1 + Math.random(),
   });
 }
