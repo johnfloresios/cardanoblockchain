@@ -9,7 +9,6 @@ import {
 } from "recharts";
 import { format, parseISO, subDays } from "date-fns";
 import { CardanoStakingGraph } from "./api/CardanoStakingGraph";
-import './css/Index.css';
 
 const data = [];
 for (let num = 30; num >= 0; num--) {
