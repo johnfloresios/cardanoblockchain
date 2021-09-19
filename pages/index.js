@@ -11,10 +11,10 @@ import { format, parseISO, subDays } from "date-fns";
 import { CardanoStakingGraph } from "./api/CardanoStakingGraph";
 
 const data = [];
-for (let num = 30; num >= 0; num--) {
+for (let num = 0; num <= 30; num++) {
   data.push({
-    epoch: 12695385 + num,
-    value: 200 + num,
+    epoch: 200 + num,
+    value: 10 + num,
   });
 }
 
