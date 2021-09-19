@@ -38,7 +38,7 @@ export default function Home() {
           axisLine={false}
           tickLine={false}
           tickFormatter={(str) => {
-            return epoch;
+            return str;
           }}
         />
 
@@ -47,7 +47,7 @@ export default function Home() {
           axisLine={false}
           tickLine={false}
           tickCount={8}
-          tickFormatter={(number) => `$${number.toFixed(2)}`}
+          tickFormatter={(number) => `${number.toFixed(2)}`}
         />
 
         <Tooltip content={<CustomTooltip />} />
