@@ -14,7 +14,7 @@ const data = [];
 for (let num = 30; num >= 0; num--) {
   data.push({
     epoch: 12695385 + num,
-    value: 1 + Math.random(),
+    value: 200 + num,
   });
 }
 
@@ -63,7 +63,7 @@ function CustomTooltip({ active, payload, label }) {
   if (active) {
     return (
       <div className="tooltip">
-        <h4>Epoch: </h4>
+        <h4>Epoch: payload[0].epoch</h4>
         <p>{payload[0].value} ADA</p>
       </div>
     );
