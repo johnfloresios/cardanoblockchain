@@ -5,7 +5,7 @@ export class CardanoStakingGraph extends Component {
 	  render() {
 		      return(
 			      <div>
-			            <h1>Staking Reward History</h1>
+			            <h1 className="header">Staking Reward History</h1>
 			      </div>
 			          )
 		    }
