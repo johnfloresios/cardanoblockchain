@@ -8,19 +8,23 @@ import {
   CartesianGrid,
 } from "recharts";
 import { format, parseISO, subDays } from "date-fns";
+import { CardanoStats } from "./api/CardanoStats";
 import { CardanoStakingGraph } from "./api/CardanoStakingGraph";
 
 const data = [];
+const min = 1;
+const min = 20;
 for (let num = 0; num <= 30; num++) {
   data.push({
     epoch: 200 + num,
-    value: 10 + num,
+    value: Math.random() * (max - min) + min,
   });
 }
 
 export default function Home() {
   return (
     <div>
+    <CardanoStats />
     <CardanoStakingGraph />
     <ResponsiveContainer width="100%" height={400}>
       <AreaChart data={data}>
@@ -63,7 +67,7 @@ function CustomTooltip({ active, payload, label }) {
   if (active) {
     return (
       <div className="tooltip">
-        <h4>Epoch: payload[0].epoch</h4>
+        <h4>Epoch: {payload[0].epoch}</h4>
         <p>{payload[0].value} ADA</p>
       </div>
     );
