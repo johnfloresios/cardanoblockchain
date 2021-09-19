@@ -20,7 +20,9 @@ for (let num = 30; num >= 0; num--) {
 
 export default function Home() {
   return (
+    <>
     <CardanoStakingGraph />
+    </>
     <ResponsiveContainer width="100%" height={400}>
       <AreaChart data={data}>
         <defs>
