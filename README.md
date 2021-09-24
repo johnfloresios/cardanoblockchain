@@ -1,1 +1,0 @@
-# Recharts Area Chart
