@@ -1,5 +1,5 @@
-import { CardanoPrice } from "./CardanoPrice";
-import { CardanoStaking } from "./CardanoStaking";
+import { CardanoPrice } from "./api/CardanoPrice";
+import { CardanoStaking } from "./api/CardanoStaking";
 import '../styles/globals.css'
 import React from 'react';
 
