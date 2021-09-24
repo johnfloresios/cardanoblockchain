@@ -1,6 +1,5 @@
 import { CardanoPrice } from "../components/CardanoPrice";
 import { CardanoStaking } from "../components/CardanoStaking";
-import "../styles/styles.css";
 import React from 'react';
 
 export default class App extends React.Component {

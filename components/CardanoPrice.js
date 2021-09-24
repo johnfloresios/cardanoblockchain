@@ -1,4 +1,4 @@
-import "../styles/styles.css";
+import "../styles/globals.css";
 import {
   ResponsiveContainer,
   AreaChart,
