@@ -9,7 +9,7 @@ import {
 } from "recharts";
 import React, { Component, StrictMode } from "react";
 import { format, parseISO, subDays } from "date-fns";
-import '../styles/globals.css'
+import '../../styles/globals.css'
 
 export class CardanoPrice extends React.Component {
   state = {
