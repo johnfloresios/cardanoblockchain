@@ -4,11 +4,9 @@ import '../styles/globals.css'
 import React from 'react';
 
 export default function Home() {
-	  render() {
-		      return  (
-			          <div className="App">
-			            <CardanoPrice />
-			          </div>
-			        );
-	  }
+	return  (
+	<div className="App">
+		 <CardanoPrice />
+        </div>
+	);
 }
