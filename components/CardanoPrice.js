@@ -1,3 +1,4 @@
+import "../styles/styles.css";
 import {
   ResponsiveContainer,
   AreaChart,
@@ -28,6 +29,7 @@ export class CardanoPrice extends React.Component {
     const historyData = await historyResponse.json();
     this.setState({
       price: data.quotes.USD,
+      counter: 0,
       history: historyData,
       loading: false
     });
@@ -41,16 +43,14 @@ export class CardanoPrice extends React.Component {
         ) : (
           <div>
             <div>
-              <h1>Cardano</h1>{" "}
+              <h1 className="header">Cardano</h1>
             </div>
-            <div className="heading-spacer"></div>
             <div>
-              <h2>Market Data</h2>
+              <h2 className="header">Market Data</h2>
             </div>
-            <div className="heading-spacer"></div>
             <div>
               <span className="price">
-                Current Price: {this.state.price.price.toFixed(2)}{" "}
+                Price: {this.state.price.price.toFixed(2)}{" "}
               </span>{" "}
               <span
                 className={
@@ -59,36 +59,43 @@ export class CardanoPrice extends React.Component {
                     : "percent-up"
                 }
               >
-                {this.state.price.percent_change_24h}
+                {this.state.price.percent_change_24h} %
               </span>{" "}
               <span className="price">
-                ATH Price: {this.state.price.ath_price.toFixed(2)}{" "}
+                ATH Price: {this.state.price.ath_price.toFixed(2)}
               </span>
               <span className="price">
                 ATH Date:{" "}
                 {format(parseISO(this.state.price.ath_date), "MMM, d, yyyy")}
               </span>
+              <div className="spacer-down" />
             </div>
 
             <ResponsiveContainer width="100%" height={400}>
               <AreaChart data={this.state.history}>
                 <defs>
                   <linearGradient id="color" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#2451B7" stopOpacity={0.4} />
-                    <stop offset="75%" stopColor="#2451B7" stopOpacity={0.05} />
+                    <stop offset="40%" stopColor="#2451B7" stopOpacity={0.4} />
+                    <stop offset="95%" stopColor="#2451B7" stopOpacity={0.05} />
                   </linearGradient>
                 </defs>
 
-                <Area dataKey="price" stroke="#00ff00" fill="url(#color)" />
+                <Area dataKey="price" stroke={
+                  this.state.price.percent_change_24h < 0
+                    ? "red"
+                    : "green"
+                } fill="url(#color)" />
 
                 <XAxis
                   dataKey="timestamp"
                   axisLine={false}
                   tickLine={false}
                   tickFormatter={(str) => {
-                    const date = parseISO(String(str).substr(0, 10));
-                    if (date.getDate() % 7 === 0) {
-			    return format(date, "MMM, d");
+                    const date = parseISO(str);
+                    const count = this.state.counter;
+                    this.state.counter = count + 1;
+                    if ((this.state.counter % 10) === 0) {
+			                return format(date, "MMM d");
                     } else {
                       return "";
                     }

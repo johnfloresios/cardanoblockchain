@@ -1,7 +1,16 @@
-import '../styles/globals.css'
+import { CardanoPrice } from "./CardanoPrice";
+import { CardanoStaking } from "./CardanoStaking";
+import "./styles.css";
+import React from 'react';
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+export default class App extends React.Component {
+  render() {
+    console.log(this.props)
+    return  (
+    <div className="App">
+      <CardanoPrice />
+      <CardanoStaking params={this.props}/>
+    </div>
+  );
 }
-
-export default MyApp
+}

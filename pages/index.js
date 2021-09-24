@@ -1,19 +1,14 @@
+import ReactDOM from "react-dom";
+import App from "./App";
 import {
-  ResponsiveContainer,
-  AreaChart,
-  XAxis,
-  YAxis,
-  Area,
-  Tooltip,
-  CartesianGrid,
-} from "recharts";
-import { format, parseISO, subDays } from "date-fns";
-import { CardanoPrice } from "../components/CardanoPrice";
+  BrowserRouter as Router,
+  Route,
+} from "react-router-dom";
 
-export default function Home() {
-  return (
-    <div>
-    <CardanoPrice />
-    </div>
-  );
-}
+const rootElement = document.getElementById("root");
+ReactDOM.render(
+      <Router>
+        <Route path='/:addr' component={App}/>
+      </Router>,
+  rootElement
+);
