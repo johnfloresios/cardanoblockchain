@@ -1,15 +1,15 @@
-import ReactDOM from "react-dom";
-import App from "../src/App";
-import {
-  BrowserRouter as Router,
-  Route,
-} from "react-router-dom";
+import { CardanoPrice } from "./CardanoPrice";
+import { CardanoStaking } from "./CardanoStaking";
+import '../styles/globals.css'
+import React from 'react';
 
-const rootElement = document.getElementById("root");
-ReactDOM.render(
-      <Router>
-        <Route path='/:addr' component={App}/>
-      </Router>,
-  rootElement
-);
-
+export default class App extends React.Component {
+	  render() {
+		      return  (
+			          <div className="App">
+			            <CardanoPrice />
+			            <CardanoStaking params={this.props}/>
+			          </div>
+			        );
+	  }
+}
