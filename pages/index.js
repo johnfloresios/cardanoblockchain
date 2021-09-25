@@ -1,6 +1,10 @@
 import { CardanoPrice } from "./api/CardanoPrice";
 import { CardanoStaking } from "./api/CardanoStaking";
 import React from 'react';
+import {
+	  BrowserRouter as Router,
+	  Route,
+} from "react-router-dom";
 
 export default function Home() {
 	return  (
