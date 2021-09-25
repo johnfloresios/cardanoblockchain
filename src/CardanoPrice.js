@@ -9,6 +9,7 @@ import {
 } from "recharts";
 import React, { Component, StrictMode } from "react";
 import { format, parseISO, subDays } from "date-fns";
+import "./styles.css";
 
 export class CardanoPrice extends React.Component {
   state = {
@@ -94,7 +95,7 @@ export class CardanoPrice extends React.Component {
                     const count = this.state.counter;
                     this.state.counter = count + 1;
                     if ((this.state.counter % 10) === 0) {
-			                return format(date, "MMM d");
+                      return format(date, "MMM d");
                     } else {
                       return "";
                     }
@@ -131,3 +132,4 @@ function CustomTooltip({ active, payload, label }) {
   }
   return null;
 }
+
